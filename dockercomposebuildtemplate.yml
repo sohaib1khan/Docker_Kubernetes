@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+  name:
+    image: image
+    restart: always # optional
+    links: # Linking two containers 
+      - app1:app2
+    ports:
+      - 8080:80
