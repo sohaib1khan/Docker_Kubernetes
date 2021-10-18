@@ -10,7 +10,7 @@
 
 # FROM:In Dockerfile Instruction FROM is used to specify Docker Image Name and start the build process 
 #
-FROM 
+# FROM 
 
 
 # LABEL: LABEL in Dockerfile Instruction is used to specify metadata information of Docker Image.
