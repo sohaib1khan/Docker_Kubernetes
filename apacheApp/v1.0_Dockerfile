@@ -1,0 +1,57 @@
+# TITLE: WebApp
+# IMAGES: CentOS
+# VERSION: v1.0
+# DATE:
+
+
+# FROM: means where do you want to start from/from which image. 
+#
+FROM centos
+
+
+# RUN: Run is used after the FROM function, RUN will 'run' any task you provide. For example, yum/apt update or mkdir folder 
+# This command will be run after the image is installed 
+#
+RUN yum -y install httpd 
+
+
+# COPY: The COPY instruction copies new files or directories from <src> and adds them to the filesystem of the container at the path <dest>.
+#
+COPY myhtmlapp /var/www/html
+
+# CMD: This command is used to execute a command at runtime when the container is executed. 
+# CMD command param1
+#
+CMD  apachectl -DFOREGROUND
+
+
+
+
+
+# ***Copy this command to run the container *** | | *** UPDATE THE COMMAND AS CONFIG GETS UPDATED ***
+
+# NOTES: 
+#
+# docker run  -d  -p 8989:80  --name my_app static_webpag:1.0
+
+
+
+
+
+# **** BUILD INSTRUCTIONS ****
+# 
+#  Provide any important instruction here!!!
+
+
+
+# BUILD COMMAND:
+# docker build --tag static_webpag:1.0 .
+
+
+# Options
+#
+# -t or --tag − is to mention a tag to the image
+# ImageName − This is the name you want to give to your image.
+# TagName − This is the tag you want to give to your image.
+# . − The directory where the Docker File is present.
+

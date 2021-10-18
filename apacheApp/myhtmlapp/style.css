@@ -1,0 +1,56 @@
+p {
+  font-family: Arial;
+}
+
+h1{
+  color: maroon;
+}
+
+
+h1{
+  text-transform: capitalize;
+}
+
+
+.pagetitle{
+ font-family: cursive;
+ text-transform: capitalize;
+}
+
+.developed-by{
+  color: lightgray;
+  text-align: center;
+}
+
+
+h4{
+  color: teal;
+  font-size: 18px;
+}
+
+span {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.page-title{
+  text-align: center;
+}
+
+
+ol a {
+  list-style-type: none;
+ margin: 0;
+ padding: 0;
+ overflow: hidden;
+color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: underline;
+}
+ol a:hover:not(.active) {
+  background-color: black;
+}
+.active {
+  background-color: #4CAF50;
+}
