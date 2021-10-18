@@ -1,0 +1,94 @@
+# TITLE: 
+# IMAGE(S): 
+# VERSION: 
+# DATE:
+
+
+# *NOTE*: Most Dockerfile instructions (FROM,RUN, etc.) can be in any order as long as the installation process is logically correct!! 
+
+
+
+# FROM:In Dockerfile Instruction FROM is used to specify Docker Image Name and start the build process 
+#
+FROM 
+
+
+# LABEL: LABEL in Dockerfile Instruction is used to specify metadata information of Docker Image.
+# FROM ubuntu:latest
+# LABEL "author"="Put your name here!"
+# LABEL "Date"="00-00-0000"
+#LABEL
+
+
+# WORKDIR: The WORKDIR in Dockerfile Instruction is used to set the working directory. Starting point on the shell when you first log in
+#
+#WORKDIR 
+
+
+# RUN: Run is used after the FROM function, RUN will 'run' any task you provide. For example, yum/apt update or mkdir folder 
+# This command will be run after the image is installed 
+#
+#RUN 
+
+
+# ENV: ENV in Dockerfile Instruction is used to set Environment Variables with key and value.
+# FROM node:12
+# ENV workdirectory /usr/node
+#ENV 
+
+
+# The ADD instruction copies new files, directories or remote file URLs from <src> and adds them to the filesystem of the image at the path <dest>.
+# 
+#ADD 
+
+
+# COPY: The COPY instruction copies new files or directories from <src> and adds them to the filesystem of the container at the path <dest>.
+# **Simply means content can be transferred from host machine to a container. 
+#
+#COPY 
+
+
+# CMD: This command is used to execute a command at runtime when the container is executed.
+# CMD executes the commands when your Docker Image is deployed. 
+#
+#CMD 
+
+
+# USER: in Dockerfile Instruction is used to set the user name and UID when running container
+# To create new user in Dockerfile and login to user.
+# RUN adduser -D admin
+# USER admin 
+#USER
+
+
+
+
+
+# ***Copy this command to run the container *** | | *** UPDATE THE COMMAND AS CONFIG GETS UPDATED ***
+#
+# NOTES: 
+#
+# COMMAND:$ docker run  
+
+
+
+
+
+# **** BUILD INSTRUCTIONS ****
+# 
+#  Provide any important instruction here!!!
+
+
+
+# BUILD COMMAND:
+#
+# docker build --tag example_image:1.0 .
+
+
+# Options
+#
+# -t or --tag − is to mention a tag to the image
+# ImageName − This is the name you want to give to your image.
+# TagName − This is the tag you want to give to your image.
+# . − The directory where the Docker File is present.
+
