@@ -1,0 +1,287 @@
+NameSpaces: 
+
+#Allow to group resources or envirnments such as
+ > EX. Dev, Test, Prod
+
+# In K8s/Kubernetes a defualt workplaced gets created
+# Object in one NameSpaces can access objects in a different NameSpaces.
+    > Ex: objectname.prod.svc.cluster.local
+# Deleting a NameSpaces will delete all child objects. 
+
+
+#  NameSpaces
+
+1. You define a NameSpaces
+2. You can specify the NameSpace when defining objects.
+
+    NameSpace Defiinition:                                              Pod Defininition:
+    apiVersion: v1                                                      apiVersion: v1 
+    kind: Namespace                                                     kind: Pod    
+    metadata:                                                           metadata:
+      name: prod  # defined namespace 'prod'                                name: myapp-pod
+                                                                            namespace: prod  # the pod will live in the prod namespace
+                                                                        spec:    
+                                                                            containers:
+                                                                            - name: nginx-container                       
+                                                                              image: nginx  
+
+# kubectl namespace basic command
+kubectl get namespace or ns   # List all namespaces 
+kubectl config set-context --current --namespace=[namespaceName] # Set the current context to use a namespace
+kubectl create ns
+kubectl delete ns
+kubectl get pods  --all-namespaces
+kubectl get pods --namespace=kube-system |or| kubectl get pods -n kube-system
+kubectl config set-context --current --namespace=default
+
+
+
+
+
+
+
+# K8s Architecture  NODES
+
+[Master or control plane]   [Nodes: physical or virtual machines, Together they form a CLUSTER]
+
+
+# etcd
+* Act as the cluster datastore for storing state
+* Key-value store
+* Not a database or a datastore for application to use
+* The single source of truth
+
+
+# kube-control-manager
+* The controller of controlers
+* It runs controllers
+        >.Node Controller
+        >.Replication controller 
+        >.Endpoints controller 
+        >. Service account & Token controllers
+
+
+# cloud-control-manager
+* interact with the cloud providers controllers
+    *Node
+        >. For checking the cloud provider to determine if a node has been deleted in the cloud after it stops responding
+    *Route
+        >. For setting up routes in the underlying cloud infrastructure
+    *Service
+        >. For creating, updating and deleting cloud provider load balancers         
+    *Volume
+        >. For creating, attaching, and mounting volumes, and interacting with the cloud provider to orchestrate volumes
+
+
+# Kube-scheduler
+    * Watches newly created pods that have no node assigned, and selects a node for them to run on
+    * Factors taken into account for scheduling decisions include
+        >. Individual and collective resource requirements
+        >. Hardware/Software/policy constraints
+        >. Affinity and anti-affinity specifications 
+        >. Data locality
+
+
+# Addons
+    * DNS
+    * Web UI (dashboard)
+    * Cluster-level logging
+    * Container resource monitoring
+
+
+
+
+# PODS State
+
+    *Pending
+        >. Accepted but not yet created
+    *Running
+        >. Bound to a node
+    *Succeeded
+        >. Exited with status 0
+    *Failed
+        >. All containers exit and at least one exited with non-zero status 
+    *Unknow
+        >. Communication issues with the pod 
+    *CrashLoopBackOff
+        >. Started, crashed, started again, and then crashed again
+
+
+
+
+# Selectors/Labels:
+
+* Labels
+    >. Key-value pairs used to identify, describe and group related sets of objects or resources. Selectors use labels to filter or select objects. 
+    * Think of selector as a SQL query 
+        select * from Nodes 
+        where disktype= SpecifiedName
+
+
+# Statefulsets 
+
+* Like a Deployment, a StatefulSet manages Pods that are based on an identical container spec. Unlike a Deployment, a StatefulSet maintains a sticky identity for each of their Pods.
+# https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/
+
+
+
+
+
+
+# Type of deployments
+
+* Deployment
+* Statefulset 
+* Daemonsets 
+* Replicasets
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

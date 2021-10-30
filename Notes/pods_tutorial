@@ -1,0 +1,34 @@
+# This process will show you how to ssh/exec into an existing running pod
+#
+
+# Below you can see i have one pod running daemonset-example-c5zsc
+
+$ kubectl get pods -o wide
+NAME                      READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+daemonset-example-c5zsc   1/1     Running   0          39m   172.17.0.3   minikube   <none>           <none>
+
+
+# To exec into a running pod 
+
+template: kubectl exec -it <pod name>  -- /bin/sh
+
+example: kubectl exec -it daemonset-example-c5zsc -- /bin/sh
+
+
+Output: 
+
+# I was able to sucessfully exec into a running pod :) 
+
+$ kubectl exec -it daemonset-example-c5zsc -- /bin/sh
+/ # pwd 
+/
+/ # ls
+bin   dev   etc   home  proc  root  sys   tmp   usr   var
+/ # whoami 
+root
+/ # 
+
+
+
+
+
